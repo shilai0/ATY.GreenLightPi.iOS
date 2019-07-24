@@ -1,0 +1,22 @@
+//
+//  ArticleUserModel.m
+//  GreenLightPi
+//
+//  Created by 代雅丽 on 2018/9/6.
+//  Copyright © 2018年 aiteyou. All rights reserved.
+//
+
+#import "ArticleUserModel.h"
+
+@implementation ArticleUserModel
++ (NSDictionary *)mj_objectClassInArray
+{
+    return @{
+             @"articleList" : @"UserArticleModel",
+             };
+}
+@end
+
+@implementation UserArticleModel
+
+@end

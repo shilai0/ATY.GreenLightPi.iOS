@@ -1,0 +1,134 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - DZNEmptyDataSet (1.8.1)
+  - FDFullscreenPopGesture (1.1)
+  - FFToast (1.2.0)
+  - GKCover (2.5.3)
+  - HappyDNS (0.3.14)
+  - IQKeyboardManager (6.1.1)
+  - Masonry (1.1.0)
+  - MBProgressHUD (1.1.0)
+  - MJExtension (3.0.15.1)
+  - MJRefresh (3.1.15.3)
+  - Qiniu (7.2.4):
+    - HappyDNS (~> 0.3)
+  - ReactiveObjC (3.1.0)
+  - SDCycleScrollView (1.75):
+    - SDWebImage (>= 4.0.0)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
+  - TZImagePickerController (2.2.2)
+  - "UITableView+FDTemplateLayoutCell (1.6)"
+  - UMCAnalytics (5.5.0):
+    - UMCCommon
+  - UMCCommon (1.5.2)
+  - UMCCommonLog (1.0.0)
+  - UMCSecurityPlugins (1.0.6)
+  - WechatOpenSDK (1.8.2)
+  - YYCache (1.0.4)
+  - ZFPlayer (3.1.2):
+    - ZFPlayer/Core (= 3.1.2)
+  - ZFPlayer/AVPlayer (3.1.2):
+    - ZFPlayer/Core
+  - ZFPlayer/ControlView (3.1.2):
+    - ZFPlayer/Core
+  - ZFPlayer/Core (3.1.2)
+
+DEPENDENCIES:
+  - AFNetworking
+  - DZNEmptyDataSet
+  - FDFullscreenPopGesture
+  - FFToast
+  - GKCover
+  - IQKeyboardManager
+  - Masonry
+  - MBProgressHUD
+  - MJExtension
+  - MJRefresh
+  - Qiniu (~> 7.2)
+  - ReactiveObjC
+  - SDCycleScrollView
+  - SDWebImage
+  - TZImagePickerController
+  - "UITableView+FDTemplateLayoutCell"
+  - UMCAnalytics
+  - UMCCommon
+  - UMCCommonLog
+  - UMCSecurityPlugins
+  - WechatOpenSDK
+  - YYCache
+  - ZFPlayer
+  - ZFPlayer/AVPlayer
+  - ZFPlayer/ControlView
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - DZNEmptyDataSet
+    - FDFullscreenPopGesture
+    - FFToast
+    - GKCover
+    - HappyDNS
+    - IQKeyboardManager
+    - Masonry
+    - MBProgressHUD
+    - MJExtension
+    - MJRefresh
+    - Qiniu
+    - ReactiveObjC
+    - SDCycleScrollView
+    - SDWebImage
+    - TZImagePickerController
+    - "UITableView+FDTemplateLayoutCell"
+    - UMCAnalytics
+    - UMCCommon
+    - UMCCommonLog
+    - UMCSecurityPlugins
+    - WechatOpenSDK
+    - YYCache
+    - ZFPlayer
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
+  FDFullscreenPopGesture: a8a620179e3d9c40e8e00256dcee1c1a27c6d0f0
+  FFToast: 60e0f3c9fd8fc473205015055ee39cd200404e01
+  GKCover: 26a096a184e32b3cdfd96492eaf3d847d9ae80a9
+  HappyDNS: dc6a164ee81979093123c241c6353bcf0218add6
+  IQKeyboardManager: 79c57795f5c2408d259d37b9da2ed07efcbb5225
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  MJExtension: 19bc33ce2eee2d319760f5622562cf581a6ff756
+  MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7
+  Qiniu: 65384bca1cdb0480a68d9b9b8f54db53418c0355
+  ReactiveObjC: 2a38ea15335de4119d8b17caf1db1484f61db902
+  SDCycleScrollView: 884b88f0266dd4708a0e1934975c69cb971707b1
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
+  TZImagePickerController: 233a868727a813b4ca810a15035320b3bcb94ead
+  "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
+  UMCAnalytics: 4667788559a72f2fa5077117d1b8802a3b6eb6bb
+  UMCCommon: 4392868ac47ff1b101663106bb114ba616fabbad
+  UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
+  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+  WechatOpenSDK: 676feec516a11173eafd1fe64b10d27babf28701
+  YYCache: 8105b6638f5e849296c71f331ff83891a4942952
+  ZFPlayer: 2e1f978b9c0e112d04732c677ec99728c9f80f1b
+
+PODFILE CHECKSUM: a67f17b3bf6b07871a252122a3c7821be24da42c
+
+COCOAPODS: 1.5.2

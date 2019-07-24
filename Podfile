@@ -1,0 +1,31 @@
+platform :ios, '8.0'
+use_frameworks!
+
+target 'GreenLightPi' do
+    pod 'ReactiveObjC'
+    pod 'SDWebImage'
+    pod 'Masonry'
+    pod 'YYCache'
+    pod 'FFToast'
+    pod 'UITableView+FDTemplateLayoutCell'
+    pod 'MJRefresh'
+    pod 'MBProgressHUD'
+    pod 'AFNetworking'
+    pod 'MJExtension'
+    pod 'IQKeyboardManager'
+    pod 'DZNEmptyDataSet'
+    pod 'SDCycleScrollView'
+    pod 'GKCover'
+    pod 'ZFPlayer'
+    pod 'ZFPlayer/ControlView'
+    pod 'ZFPlayer/AVPlayer'
+    pod 'TZImagePickerController'
+    pod 'UMCCommon'
+    pod 'UMCCommonLog'
+    pod 'UMCSecurityPlugins'
+    pod 'UMCAnalytics'
+    pod 'UMCSecurityPlugins'
+    pod 'WechatOpenSDK'
+    pod "Qiniu", "~> 7.2"
+    pod 'FDFullscreenPopGesture'
+end

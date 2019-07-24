@@ -1,0 +1,18 @@
+//
+//  AliPayManager.h
+//  GreenLightPi
+//
+//  Created by 代雅丽 on 2018/8/11.
+//  Copyright © 2018年 aiteyou. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@class FcCoursesModel,StoreCardApiModel;
+@interface AliPayManager : NSObject
+@property (nonatomic, strong) FcCoursesModel *model;
+//@property (nonatomic, strong) StoreCardApiModel *cardModel;
+
++ (instancetype)sharedManager;
+- (void)jumpToAppointedViewController:(NSDictionary *)resultDic;
+@end

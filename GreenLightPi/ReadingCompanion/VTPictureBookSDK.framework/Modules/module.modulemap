@@ -1,0 +1,6 @@
+framework module VTPictureBookSDK {
+  umbrella header "VTPictureBookSDK.h"
+
+  export *
+  module * { export * }
+}
