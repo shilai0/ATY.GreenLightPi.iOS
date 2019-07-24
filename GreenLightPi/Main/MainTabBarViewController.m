@@ -32,7 +32,7 @@
 
 - (void)hm_creatSubControllers {
     [self hm_addSubControllersWithControllerName:@"HMMainViewController" title:@"首页" imageName:@"Home"];
-    [self hm_addSubControllersWithControllerName:@"ReadingCompanionViewController" title:@"AI阅读" imageName:@"fatherstudy"];
+    [self hm_addSubControllersWithControllerName:@"ReadingCompanionViewController" title:@"AI伴读" imageName:@"fatherstudy"];
     [self hm_addSubControllersWithControllerName:@"FCMainViewController" title:@"好家长" imageName:@"familycoach"];
     [self hm_addSubControllersWithControllerName:@"PCMainViewController" title:@"我的" imageName:@"mine"];
 }

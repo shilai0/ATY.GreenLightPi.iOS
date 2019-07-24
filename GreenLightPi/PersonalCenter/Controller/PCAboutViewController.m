@@ -36,7 +36,7 @@
 - (UILabel *)nameLabel {
     if (!_nameLabel) {
         _nameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, KSCREENH_HEIGHT - KBottomSafeHeight - KNavgationBarHeight - 32, KSCREEN_WIDTH, 12)];
-        _nameLabel.text = @"深圳市艾特优信息科技有限公司";
+        _nameLabel.text = @"深圳市一家老小信息科技有限公司";
         _nameLabel.textColor = KHEXRGB(0x999999);
         _nameLabel.font = FONT(12);
         _nameLabel.textAlignment = NSTextAlignmentCenter;
