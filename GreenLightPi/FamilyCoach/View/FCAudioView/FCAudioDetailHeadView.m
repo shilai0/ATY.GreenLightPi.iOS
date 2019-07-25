@@ -80,6 +80,9 @@
     [self.backView addSubview:self.titleLabel];
     [self.backView addSubview:self.subscribeBtn];
     
+    /***版本1.3.1暂时隐藏订阅的下单入口，后续开放注释掉下面这行代码即可***/
+    self.subscribeBtn.hidden = YES;
+    
     [self.backView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];

@@ -122,8 +122,11 @@
 
 #pragma mark -- 底部按钮
 - (void)fc_creatBottomView {
+    /***版本1.3.1暂时隐藏立即购买的下单入口（后面如果开放，替换下面btnArr代码即可）***/
+//        NSMutableArray *btnArr = [NSMutableArray arrayWithObjects:@{@"imageName":@"",@"title":[NSString stringWithFormat:@"￥%@",self.model.price],@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xFFFFFF)}, @{@"imageName":@"",@"title":@"VIP免费",@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xD9D295)},@{@"imageName":@"fc_addStudy",@"title":@"立即购买",@"titleColor":@"0xFFFFFF",@"backColor":KHEXRGB(0x44C08C)},nil];
     
-        NSMutableArray *btnArr = [NSMutableArray arrayWithObjects:@{@"imageName":@"",@"title":[NSString stringWithFormat:@"￥%@",self.model.price],@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xFFFFFF)}, @{@"imageName":@"",@"title":@"VIP免费",@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xD9D295)},@{@"imageName":@"fc_addStudy",@"title":@"立即购买",@"titleColor":@"0xFFFFFF",@"backColor":KHEXRGB(0x44C08C)},nil];
+    NSMutableArray *btnArr = [NSMutableArray arrayWithObjects:@{@"imageName":@"",@"title":[NSString stringWithFormat:@"￥%@",self.model.price],@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xFFFFFF)}, @{@"imageName":@"",@"title":@"VIP免费",@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xD9D295)},nil];
+    
         self.bottomView = [[FCCourseDetailBottomView alloc] initWithData:btnArr];
         [self.view addSubview:self.bottomView];
         

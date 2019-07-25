@@ -16,8 +16,8 @@ int const Success = 1;
 /* 基地址 */
 //NSString * const BaseLink = @"http://192.168.0.222/api/";       //
 //NSString * const BaseLink = @"http://192.168.0.221:80/api/";       //
-//NSString * const BaseLink = @"http://interface.aiteyou.net/api/";        //
-NSString * const BaseLink = @"http://release.aiteyou.net/api/";        //
+NSString * const BaseLink = @"http://interface.aiteyou.net/api/";        //
+//NSString * const BaseLink = @"http://release.aiteyou.net/api/";        //
 //NSString * const BaseLink = @"http://api.aiteyou.net/api/";        //
 
 /**文件流形式上传图片**/

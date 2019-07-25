@@ -246,12 +246,15 @@
                 self.mainHeadView.model = self.personalCenterUserModel;
                 self.mainTopHeadView.model = self.personalCenterUserModel;
                 
+ /*************版本1.3.1权益中心暂时不上
 //                if ([self.personalCenterUserModel.UserGrade isEqualToString:@"D"] || [self.personalCenterUserModel.UserGrade isEqualToString:@"E"]) {
 //                    self.mainView.dataArr = [[NSMutableArray alloc] initWithObjects:@[@{@"title":@"我的乐园"},@{@"title":@"我的家庭组"},@{@"title":@"我的课程"},@{@"title":@"我的收藏"},@{@"title":@"代金券"},],nil];
 //                } else {
-                    self.mainView.dataArr = [[NSMutableArray alloc] initWithObjects:@[@{@"title":@"我的乐园"},@{@"title":@"我的家庭组"},@{@"title":@"我的课程"},@{@"title":@"我的收藏"},@{@"title":@"代金券"},@{@"title":@"权益中心"},],nil];
+//                    self.mainView.dataArr = [[NSMutableArray alloc] initWithObjects:@[@{@"title":@"我的乐园"},@{@"title":@"我的家庭组"},@{@"title":@"我的课程"},@{@"title":@"我的收藏"},@{@"title":@"代金券"},@{@"title":@"权益中心"},],nil];
 //                }
-                [self.mainView reloadData];
+//                [self.mainView reloadData];
+ *********************/
+                
                 
 //                if (self.personalCenterUserModel.isActivation == 0) {
                     [self.view addSubview:self.openParkBtn];

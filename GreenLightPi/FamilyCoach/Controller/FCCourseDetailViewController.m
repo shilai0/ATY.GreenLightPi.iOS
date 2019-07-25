@@ -210,13 +210,19 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
                 if ([[NSUserDefaults standardUserDefaults] objectForKey:PROJECT_USER_ID]) {
                     [weakSelf addStudy];
                 } else {
-//                    [self gologinStr:@"需要登录才能加入学习哦"];
                     [self loginAction];
                 }
             }];
             
+            /***版本1.3.1暂时隐藏加入学习的下单入口（后面如果开放，注掉下面这行代码即可）***/
+            self.bottomAddStudyBtn.hidden = YES;
+            
         } else {
-            NSMutableArray *btnArr = [NSMutableArray arrayWithObjects:@{@"imageName":@"fc_wantStudy_normal",@"title":@"想学",@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xFFFFFF)}, @{@"imageName":@"",@"title":@"VIP免费",@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xD9D295)},@{@"imageName":@"fc_addStudy",@"title":@"+加入学习",@"titleColor":@"0xFFFFFF",@"backColor":KHEXRGB(0x44C08C)},nil];
+            /***版本1.3.1暂时隐藏加入学习的下单入口（后面如果开放，替换下面btnArr代码即可）***/
+//            NSMutableArray *btnArr = [NSMutableArray arrayWithObjects:@{@"imageName":@"fc_wantStudy_normal",@"title":@"想学",@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xFFFFFF)}, @{@"imageName":@"",@"title":@"VIP免费",@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xD9D295)},@{@"imageName":@"fc_addStudy",@"title":@"+加入学习",@"titleColor":@"0xFFFFFF",@"backColor":KHEXRGB(0x44C08C)},nil];
+            
+            NSMutableArray *btnArr = [NSMutableArray arrayWithObjects:@{@"imageName":@"fc_wantStudy_normal",@"title":@"想学",@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xFFFFFF)}, @{@"imageName":@"",@"title":@"VIP免费",@"titleColor":@"0x646464",@"backColor":KHEXRGB(0xD9D295)},nil];
+
             self.bottomView = [[FCCourseDetailBottomView alloc] initWithData:btnArr];
             [self.view addSubview:self.bottomView];
             
@@ -232,7 +238,6 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
                     if ([[NSUserDefaults standardUserDefaults] objectForKey:PROJECT_USER_ID]) {
                         [weakSelf collectOrCancelCollectCourse:content1];
                     } else {
-//                        [weakSelf gologinStr:@"需要登录才能收藏课程哦"];
                         [weakSelf loginAction];
                     }
                 } else if (index == 1) {
@@ -247,7 +252,6 @@ static NSString *kVideoCover = @"https://upload-images.jianshu.io/upload_images/
                         [WXApiManager sharedManager].model = weakSelf.model;
                         [AliPayManager sharedManager].model = weakSelf.model;
                         [weakSelf.navigationController pushViewController:purchaseCourseVC animated:YES];              } else {
-//                        [weakSelf gologinStr:@"需要登录才能购买课程哦"];
                             [weakSelf loginAction];
                     }
                 }
