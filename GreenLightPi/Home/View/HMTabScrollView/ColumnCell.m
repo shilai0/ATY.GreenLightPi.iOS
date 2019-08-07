@@ -95,6 +95,7 @@
                                                 context:nil].size;
     return size;
 }
+
 - (IBAction)removeBtn:(UIButton *)sender {
     if (self.closeBtnBlock) {
         self.closeBtnBlock(_model,_indexPath);

@@ -50,6 +50,7 @@
 }
 
 
+
 -(void)viewWillLayoutSubviews{
     self.qrview.frame = CGRectMake(0, 0, self.view.frame.size.width, KSCREENH_HEIGHT - KTabBarHeight);
 }
@@ -105,9 +106,9 @@
     [[NSUserDefaults standardUserDefaults] setValue:license forKey:@"license"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"custom_viewwillappear" object:nil];
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self dismissViewControllerAnimated:YES completion:nil];
-    });
+//    });
 }
 
 - (void)scanFail:(VTErrorCode)error{

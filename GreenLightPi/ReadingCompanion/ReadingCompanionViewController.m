@@ -55,9 +55,6 @@
         return;
     }
     
-//    NSString *license = @"NzUxMzdDMTQyRTY3NUM1QzhDOEQyQzA1ODE2MkJFOTBFM0FGRjE2RDZGRTU2MTBDOTE4RTJGNzU3RTQ5QjhENTAwRkZFNkM2MjMzNEY3NkU2NjhDNjMzRUQ5MjFFRDkzNkQ2NTdFNzg0RTA1RkE0Q0E2MTdDMTc1NDFGQURCNjI2RTU2MUQ3MjYwQzk1RjNCOEQyRkEyREIwQzFCNzM1NTZBMkU4MDQ2RjU5MUIwQ0U0NDUzNUJBRDkwRTg2QTBBMTRBQUI2OTEzMzkxMENFMEQwRTQ2ODYzRDg5RTEyQjEzMzA0REREMDJBMTc5RUYxRTY5RjJGMTBGN0MxOTkwNTlCQkJDODg0N0FGQ0Q5MzlFMjZEN0Q0MkM2NTkyQjA4QzQ2RjdFMEIwMTUwNEE5NTRGRDNBNTlFN0U2NzM1RjYzOTJBMzgyMUVDOUQyNENEQUQ4OEYwMTM5MDBENDc0RjQwRjJDQkE5Q0JBNDA5RDlEMkJGQ0QwQjE5NjQxNTQ1QjNFMUE5REM2MTVBQjQ2MjRENjQ0QzZBOEQzREZGRUVBOUQzRTFDMDlGRERFODU0Q0M1RTgzREI1NkEwMzlCRDFEQzFFNDIyMTA5RDQ2MjAwOTI4MTc3QjZBMzNEOTk1NjQzNjJDMTY1NjlBNzU3OTc2RTI4ODU2NUIwRDY0NEJCRUM1MTNBMjE2MUQxRDRDNzhEMzMyNEVDMjI1RjIwRjNGODlGREVFN0E4NTM0NTNGOTEwRENDNTM5RTVENTE2";
-//    [self.mainBll initAppWithLicense:license];
-    
     BOOL isAuthorizd =  [[NSUserDefaults standardUserDefaults] boolForKey:@"authorize"];
     NSString *license = [[NSUserDefaults standardUserDefaults] stringForKey:@"license"];
     if (!isAuthorizd || !license) {
@@ -65,34 +62,21 @@
         UIViewController *target = [[targetClass alloc] init];
         target.modalPresentationStyle = UIModalPresentationCurrentContext;
         [self presentViewController:target animated:YES completion:nil];
-        return;
     } else {
-        _isEnable = YES;
         [self.mainBll initAppWithLicense:license];
-//        self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
-//        self.cameraView = [self.mainBll getCameraPreView];
-//        [self.view addSubview:self.rightV];
-//        [self.rightV addPreview:self.cameraView];
-//        [self initBtnEvent];
-//        isNetworkReachability = YES;
-        
-        
-        
-//        [self customViewWillAppear];
     self.mainBll.resoureUpdateDelegate = self;
     self.mainBll.audioStatusDelegate = self;
     self.mainBll.loginDelegate = self;
     self.mainBll.recognitionDelegate = self;
     self.mainBll.cameraDelegate = self;
-//    self.animationManager = [VTAnimationManager sharedManager];
     }
     
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentVController) name:@"custom_viewwillappear" object:nil];
+
 }
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(presentVController) name:@"custom_viewwillappear" object:nil];
-    
     if (_isEnable && [XSYTapSound ifCanUseSystemCamera]) {
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.mainBll openCameraWithCameraPosition:VTCameraPositionFront];
@@ -101,7 +85,6 @@
             });
         });
     }
-    
 }
 
 -(void)viewDidDisappear:(BOOL)animated{
@@ -112,14 +95,10 @@
     [self.mainBll stopRecognition];
 }
 
--(void)customViewWillAppear{
-    self.mainBll.cameraDelegate = self;
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.mainBll openCameraWithCameraPosition:VTCameraPositionFront];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [self.mainBll startRecognition];
-        });
-    });
+-(void)initLicense{
+    NSString *license = [[NSUserDefaults standardUserDefaults] stringForKey:@"license"];
+    //    NSString *license = @"NzUxMzdDMTQyRTY3NUM1QzhDOEQyQzA1ODE2MkJFOTBFM0FGRjE2RDZGRTU2MTBDOTE4RTJGNzU3RTQ5QjhENTAwRkZFNkM2MjMzNEY3NkU2NjhDNjMzRUQ5MjFFRDkzNkQ2NTdFNzg0RTA1RkE0Q0E2MTdDMTc1NDFGQURCNjI2RTU2MUQ3MjYwQzk1RjNCOEQyRkEyREIwQzFCNzM1NTZBMkU4MDQ2RjU5MUIwQ0U0NDUzNUJBRDkwRTg2QTBBMTRBQUI2OTEzMzkxMENFMEQwRTQ2ODYzRDg5RTEyQjEzMzA0REREMDJBMTc5RUYxRTY5RjJGMTBGN0MxOTkwNTlCQkJDODg0N0FGQ0Q5MzlFMjZEN0Q0MkM2NTkyQjA4QzQ2RjdFMEIwMTUwNEE5NTRGRDNBNTlFN0U2NzM1RjYzOTJBMzgyMUVDOUQyNENEQUQ4OEYwMTM5MDBENDc0RjQwRjJDQkE5Q0JBNDA5RDlEMkJGQ0QwQjE5NjQxNTQ1QjNFMUE5REM2MTVBQjQ2MjRENjQ0QzZBOEQzREZGRUVBOUQzRTFDMDlGRERFODU0Q0M1RTgzREI1NkEwMzlCRDFEQzFFNDIyMTA5RDQ2MjAwOTI4MTc3QjZBMzNEOTk1NjQzNjJDMTY1NjlBNzU3OTc2RTI4ODU2NUIwRDY0NEJCRUM1MTNBMjE2MUQxRDRDNzhEMzMyNEVDMjI1RjIwRjNGODlGREVFN0E4NTM0NTNGOTEwRENDNTM5RTVENTE2";
+    [self.mainBll initAppWithLicense:license];
 }
 
 #pragma mark ----- VTRecognitionDelegate -----
@@ -211,7 +190,7 @@
 
 #pragma mark --- VTInitAPPStatusDelegate ---
 -(void)onInitAPPSuccess{
-//    self.initLicenseSuccess = true;
+    _isEnable = YES;
     float welcomeTime = ceil([VTAudioManager audioSoundDuration:SYS_BR_PROLOGUE]);
     [self.mainBll openCameraWithCameraPosition:VTCameraPositionFront];
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(welcomeTime * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
@@ -221,14 +200,13 @@
 }
 
 -(void)onInitAPPFail:(VTErrorCode) error{
-//    self.initLicenseSuccess = false;
-//    if (error == VTErrorCode_InvalidLicense) {
-//        NSLog(@"onInitAPPFail -- VTErrorCode_InvalidLicense");
-//        [VTAudioManager sendMessage:MSG_LICENSE_CHECK_FAIL];
-//    }else if (error == VTErrorCode_Timeout){
-//        NSLog(@"onInitAPPFail -- VTErrorCode_NetError");
-//        [VTAudioManager sendMessage:MSG_NETWORK_CONNECT_FAIL];
-//    }
+    if (error == VTErrorCode_InvalidLicense) {
+        NSLog(@"onInitAPPFail -- VTErrorCode_InvalidLicense");
+        [VTAudioManager sendMessage:MSG_LICENSE_CHECK_FAIL];
+    }else if (error == VTErrorCode_Timeout){
+        NSLog(@"onInitAPPFail -- VTErrorCode_NetError");
+        [VTAudioManager sendMessage:MSG_NETWORK_CONNECT_FAIL];
+    }
 }
 
 #pragma mark --VTAudioStatusDelegate--
@@ -379,22 +357,19 @@
 
 #pragma mark -- 通知
 -(void)presentVController{
-    _isEnable = YES;
-    NSString *license = [[NSUserDefaults standardUserDefaults] stringForKey:@"license"];
-    [self.mainBll initAppWithLicense:license];
     self.view.backgroundColor = [UIColor colorWithRed:240/255.0 green:240/255.0 blue:240/255.0 alpha:1];
     self.cameraView = [self.mainBll getCameraPreView];
     [self.view addSubview:self.rightV];
     [self.rightV addPreview:self.cameraView];
     [self initBtnEvent];
     isNetworkReachability = YES;
-    //        [self customViewWillAppear];
+    NSString *license = [[NSUserDefaults standardUserDefaults] stringForKey:@"license"];
+    [self.mainBll initAppWithLicense:license];
     self.mainBll.resoureUpdateDelegate = self;
     self.mainBll.audioStatusDelegate = self;
     self.mainBll.loginDelegate = self;
     self.mainBll.recognitionDelegate = self;
     self.mainBll.cameraDelegate = self;
-    [self customViewWillAppear];
 }
 
 @end
