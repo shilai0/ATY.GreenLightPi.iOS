@@ -100,12 +100,25 @@
     @weakify(self);
     [[self.loginRegisterVM.getVerificationCodeCommand execute:params] subscribeNext:^(id  _Nullable x) {
         @strongify(self);
-        if (x != nil) {
+//        if (x != nil) {
+//            PCSendCodeViewController *sendCodeVC = [[PCSendCodeViewController alloc] init];
+//            sendCodeVC.phoneStr = self.params[@"Phone"];
+//            sendCodeVC.params = self.params;
+//            sendCodeVC.sendMessageType = SendMessageTypeResetPassWord;
+//            [ATYToast aty_bottomMessageToast:@"验证码发送成功"];
+//            [self.navigationController pushViewController:sendCodeVC animated:YES];
+//        }
+        
+        NSString *message = x[@"Msg"][@"message"];
+        NSNumber *success = x[@"Success"];
+        if (message.length > 0) {
+            [ATYToast aty_bottomMessageToast:message];
+        }
+        if ([success boolValue]) {
             PCSendCodeViewController *sendCodeVC = [[PCSendCodeViewController alloc] init];
             sendCodeVC.phoneStr = self.params[@"Phone"];
             sendCodeVC.params = self.params;
             sendCodeVC.sendMessageType = SendMessageTypeResetPassWord;
-            [ATYToast aty_bottomMessageToast:@"验证码发送成功"];
             [self.navigationController pushViewController:sendCodeVC animated:YES];
         }
     }];

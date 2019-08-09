@@ -27,8 +27,9 @@
 //                    [userDefaults synchronize];
 //                    [subscriber sendNext:resultDic];
 //                } else {
-                    [subscriber sendNext:resultDic];
+//                    [subscriber sendNext:nil];
 //                }
+                [subscriber sendNext:resultDic];
                 [subscriber sendCompleted];
                 [MBProgressHUD hideHUD];
             }];
@@ -42,11 +43,13 @@
         RACSignal *sendCodeSignal = [RACSignal createSignal:^RACDisposable * _Nullable(id<RACSubscriber>  _Nonnull subscriber) {
             [MBProgressHUD showActivityMessageInWindow:@"处理中..."];
             [BaseRequest GETRequestDataWithReuestURL:RL_SendVerificationCode params:input success:^(NSDictionary *resultDic) {
-                if ([resultDic[@"Success"] intValue] == Success) {
-                    [subscriber sendNext:resultDic];
-                } else {
-                    [subscriber sendNext:nil];
-                }
+//                if ([resultDic[@"Success"] intValue] == Success) {
+//                    [subscriber sendNext:resultDic];
+//                } else {
+//                    [subscriber sendNext:nil];
+//                }
+                [subscriber sendNext:resultDic];
+
                 [subscriber sendCompleted];
                 [MBProgressHUD hideHUD];
             }];

@@ -8,8 +8,9 @@
 #import "RightView.h"
 //#import <Masonry.h>
 #import "UIImageView+WebCache.h"
-#import "UIButton+EnlargeHitArea.h"
+#import "ReadButton+EnlargeHitArea.h"
 #import "VTPictureBookSDK.framework/Headers/VTSDKBookDataModel.h"
+#import "ReadButton.h"
 
 #define Space 100*2
 #define WIDTH [UIScreen mainScreen].bounds.size.width
@@ -96,7 +97,7 @@ API_AVAILABLE(ios(9.0))
     [bottomV addSubview:bottomBg];
     self.bottomBg = bottomBg;
     //播放按钮界面
-    UIButton *playBtn = [UIButton buttonWithType:0];
+    ReadButton *playBtn = [ReadButton buttonWithType:0];
     playBtn.tag = 1000;
     playBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-20, -20, -20, -20);
     playBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;
@@ -121,7 +122,7 @@ API_AVAILABLE(ios(9.0))
     replayBtnName.font = [UIFont systemFontOfSize:18];
     replayBtnName.textAlignment = NSTextAlignmentCenter;
     replayBtnName.tag = 98;
-    UIButton *replayBtn = [UIButton buttonWithType:0];
+    ReadButton *replayBtn = [ReadButton buttonWithType:0];
     replayBtn.tag = 1001;
     replayBtn.hitTestEdgeInsets = UIEdgeInsetsMake(-20, -20, -20, -20);
     replayBtn.imageView.contentMode = UIViewContentModeScaleAspectFit;

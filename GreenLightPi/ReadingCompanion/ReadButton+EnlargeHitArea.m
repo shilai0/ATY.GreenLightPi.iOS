@@ -1,15 +1,17 @@
 //
-//  UIButton+EnlargeHitArea.m
-//  VTPictureBook
+//  ReadButton+EnlargeHitArea.m
+//  GreenLightPi
 //
-//  Created by 隔壁老王 on 2019/5/25.
+//  Created by 代雅丽 on 2019/8/9.
+//  Copyright © 2019 aiteyou. All rights reserved.
 //
 
-#import "UIButton+EnlargeHitArea.h"
+#import "ReadButton+EnlargeHitArea.h"
+#import "ReadButton.h"
 #import <objc/runtime.h>
 #import "VTPictureBookSDK.framework/Headers/VTAudioManager.h"
 
-@implementation UIButton (EnlargeHitArea)
+@implementation ReadButton (EnlargeHitArea)
 
 static const NSString *KEY_HIT_TEST_EDGE_INSETS = @"HitTestEdgeInsets";
 
@@ -37,9 +39,9 @@ static const NSString *KEY_HIT_TEST_EDGE_INSETS = @"HitTestEdgeInsets";
 }
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
-
     [VTAudioManager sendMessage:MSG_BTN_EF];
     [super touchesBegan:touches withEvent:event];
 }
+
 
 @end

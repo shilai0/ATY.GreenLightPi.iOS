@@ -546,9 +546,13 @@
     @weakify(self);
     [[self.loginRegisterVM.getVerificationCodeCommand execute:params] subscribeNext:^(id  _Nullable x) {
         @strongify(self);
-        if (x != nil) {
+        NSString *message = x[@"Msg"][@"message"];
+        NSNumber *success = x[@"Success"];
+        if (message.length > 0) {
+            [ATYToast aty_bottomMessageToast:message];
+        }
+        if ([success boolValue]) {
             self.activityCode = x[@"Data"];
-            [ATYToast aty_bottomMessageToast:@"验证码发送成功"];
         }
     }];
 }

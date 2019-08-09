@@ -310,9 +310,15 @@
     params[@"smsType"] = [NSNumber numberWithInteger:codeIndex];
     params[@"phone"] = telephone;
     [[self.loginRegistVM.getVerificationCodeCommand execute:params] subscribeNext:^(id  _Nullable x) {
-        if (x != nil) {
-            [ATYToast aty_bottomMessageToast:@"验证码发送成功"];
+//        if (x != nil) {
+//            [ATYToast aty_bottomMessageToast:@"验证码发送成功"];
+//        }
+        
+        NSString *message = x[@"Msg"][@"message"];
+        if (message.length > 0) {
+            [ATYToast aty_bottomMessageToast:message];
         }
+        
     }];
 }
 

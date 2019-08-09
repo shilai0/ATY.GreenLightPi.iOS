@@ -130,9 +130,15 @@ static NSInteger seq = 0;
         params[@"smsType"] = [NSNumber numberWithInt:4];
         params[@"phone"] = self.telephone;
         [[self.loginRegisterVM.getVerificationCodeCommand execute:params] subscribeNext:^(id  _Nullable x) {
-            if (x != nil) {
-                [ATYToast aty_bottomMessageToast:@"验证码发送成功"];
+//            if (x != nil) {
+//                [ATYToast aty_bottomMessageToast:@"验证码发送成功"];
+//            }
+            
+            NSString *message = x[@"Msg"][@"message"];
+            if (message.length > 0) {
+                [ATYToast aty_bottomMessageToast:message];
             }
+            
         }];
     }];
     

@@ -111,7 +111,18 @@
             @weakify(self);
             [[self.loginRegisterVM.getVerificationCodeCommand execute:params] subscribeNext:^(id  _Nullable x) {
                 @strongify(self);
-                if (x != nil) {
+//                if (x != nil) {
+//                    RLBindTwoViewController *bindTwoVC = [[RLBindTwoViewController alloc] init];
+//                    bindTwoVC.telephone = self.telephoneTextfield.text;
+//                    [self.navigationController pushViewController:bindTwoVC animated:YES];
+//                }
+                
+                NSString *message = x[@"Msg"][@"message"];
+                NSNumber *success = x[@"Success"];
+                if (message.length > 0) {
+                    [ATYToast aty_bottomMessageToast:message];
+                }
+                if ([success boolValue]) {
                     RLBindTwoViewController *bindTwoVC = [[RLBindTwoViewController alloc] init];
                     bindTwoVC.telephone = self.telephoneTextfield.text;
                     [self.navigationController pushViewController:bindTwoVC animated:YES];
